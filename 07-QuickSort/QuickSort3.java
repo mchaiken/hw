@@ -1,10 +1,18 @@
 import java.util.Arrays;
 import java.util.Random;
 
-public class QuickSort2{
+public class QuickSort3{
 
     public int partition(int[]a,int l, int r){ 
-	int pivot  =  (int)(Math.random()*(r-l)+l);
+	//System.out.println(Arrays.toString(a));
+	int pivot;
+	if (a[0]>a[a.length-1] && a[0]<a[a.length/2])
+	    pivot=0;
+	else if(a[0]<a[a.length-1] && a[a.length-1]<a[a.length/2])
+	   pivot=a.length-1;
+	else
+	    pivot=a.length/2;
+	//System.out.println(pivot);
 	int temp=a[r];
 	int wall=l;
 	a[r]=a[pivot];
@@ -41,7 +49,7 @@ public class QuickSort2{
 	for(int i = 0;i<test.length;i++){
 	    test[i] = r.nextInt(100);
 	}
-	QuickSort2 me = new QuickSort2();
+	QuickSort3 me = new QuickSort3();
 	me.qSort(test,0,test.length - 1);
 	System.out.println(Arrays.toString(test));
     }
