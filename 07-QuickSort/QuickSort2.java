@@ -38,12 +38,12 @@ public class QuickSort2{
 
     public static void main(String[] args){
 	Random r = new Random();
-	int[] test = new int[10];
+	int[] test = new int[900000];
 	for(int i = 0;i<test.length;i++){
-	    test[i] = r.nextInt(100);
+	    test[i] = r.nextInt(100000);
 	}
 	QuickSort2 me = new QuickSort2();
 	me.qSort(test,0,test.length - 1);
-	System.out.println(Arrays.toString(test));
+	//System.out.println(Arrays.toString(test));
     }
 }
