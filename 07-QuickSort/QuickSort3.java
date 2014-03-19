@@ -4,7 +4,6 @@ import java.util.Random;
 public class QuickSort3{
 
     public int partition(int[]a,int l, int r){ 
-	//System.out.println(Arrays.toString(a));
 	int pivot;
 	if (a[0]>a[a.length-1] && a[0]<a[a.length/2])
 	    pivot=0;
@@ -12,7 +11,6 @@ public class QuickSort3{
 	   pivot=a.length-1;
 	else
 	    pivot=a.length/2;
-	//System.out.println(pivot);
 	int temp=a[r];
 	int wall=l;
 	a[r]=a[pivot];
