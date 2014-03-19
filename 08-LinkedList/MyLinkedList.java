@@ -46,7 +46,7 @@ public class MyLinkedList{
 
     public String set(int i, String s){
 	Node temp=head;
-	for(int c=0;c<i-1;c++){
+	for(int c=0;c<i-2;c++){
 	    temp=temp.getNext();
 	}
 	Node newN=new Node(s);
@@ -68,7 +68,7 @@ public class MyLinkedList{
 	    head=head.getNext();
 	}
 	else{
-	    for(int c=0;c<i-1;c++){
+	    for(int c=0;c<i-2;c++){
 		temp=temp.getNext();
 	    }
 	    old=temp.getNext();
@@ -106,6 +106,16 @@ public class MyLinkedList{
 	for(int c = 0; c<10; c++){
 	    me.add((int)(Math.random()*10)+"");
 	}
+	System.out.println(me);
+	System.out.println("get 8th index: "+me.get(8));
+	System.out.println("set 8th index to 12: "+me.set(0,"12"));
+	System.out.println(me);
+	System.out.println("remove 8th index: "+me.remove(0));
+	System.out.println(me);
+	System.out.println("are there any 9s?: "+me.find("9"));
+	System.out.println("how long?: "+me.length());
+	me.add(0,"2");
+	System.out.println("add a 2");
 	System.out.println(me);
     }
 }
