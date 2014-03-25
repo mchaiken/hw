@@ -63,6 +63,7 @@ public class MyLinkedList{
 	Node temp=head;
 	Node old;
 	for(int c=0;c< i;c++){
+	    
 	    temp=temp.getNext();
 	}
 	old=temp.getNext();
@@ -92,6 +93,7 @@ public class MyLinkedList{
     public static void main(String[] args){
 	MyLinkedList me=new MyLinkedList();
 	for(int c = 0; c<10; c++){
+	    System.out.println(me);
 	    me.add((int)(Math.random()*10)+"");
 	}
 	System.out.println(me);

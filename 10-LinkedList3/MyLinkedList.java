@@ -1,4 +1,4 @@
-public class MyLinkedList{
+public class MyLinkedList implements Iterable<String>{
     private Node head;
     private Node tail;
     private int length;
@@ -7,7 +7,13 @@ public class MyLinkedList{
 	head=new Node("0");
 	tail=head;
     }
+    public Node getHead(){
+	return head;
+    }
 
+    public MyIterator<String> iterator(){
+	return new MyIterator<String>(head);
+	    }
     public void add(String s){
 	Node temp=new Node(s);
 	tail.setNext(temp);
