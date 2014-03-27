@@ -35,17 +35,48 @@ public class DoubleLL<E>{
 	Node<E> n = new Node<E>(d);
 	if (current == null) {
 	    current = n;
+	    current.next = n;
+	    current.prev = n;
+	    
 	}
 	else {
 	    n.next = current;
 	    n.prev=current.prev;
-	    if(current.prev !=null){
-		current.prev.next=n;
-	    }
+	    current.prev.next=n;
 	    current.prev = n;
 	    current = n;
 	}
     }
+
+    public void delete(){
+	if(current == null || current.next==current){
+	    current = null;
+	}
+	else{
+	    current.next.prev=current.prev;
+	    current.prev.next=current.next;
+	    current=current.next;
+	}
+    }
+
+    public int find(E data){
+	if(current.getData()==data){
+	    return 0;
+	}
+	else{
+	    int i=1;
+	    Node <E> temp= current.getNext();
+	    while(temp !=current){
+		if(temp.getData()==data){
+		    return i;
+		}
+		i++;
+		temp=temp.getNext();
+	    }
+	    return -1;
+	}
+    }
+
     public E getCurrent() {
 	return current.getData();
     }
@@ -64,13 +95,11 @@ public class DoubleLL<E>{
 	    return "";
 	}
 	Node<E> temp = current;
-	while (temp.getPrev() != null) {
-	    temp = temp.getPrev();
-	}
 
-	String s = "";
-	while (temp != null) {
-	    s = s + temp.getData() + " ";
+	String s = current.getData() + " ";
+	temp=temp.getNext();
+	while (temp != current) {
+	    s += temp.getData() + " ";
 	    temp = temp.getNext();
 	}
 	return s;
@@ -84,15 +113,20 @@ public class DoubleLL<E>{
 	System.out.println(L);
 	L.insert("three");
 	System.out.println(L);
-	//first test up to here	
+	
 
 	System.out.println("current: "+L.getCurrent());
 	L.forward();	
 	System.out.println("current: "+L.getCurrent());
 
-	L.insert("inserted");
-	L.forward();
+	L.insert("inserted");	
 	System.out.println(L);
+	L.delete();
+	System.out.println(L);
+	System.out.println("Find world "+L.find("world"));
+	System.out.println("Find goodbye "+L.find("goodbye"));
 
+
+	/*first test up to here		*/
     }
 }
