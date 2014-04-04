@@ -1,7 +1,9 @@
-public class MyIterator<E> implements Iterator<E>{
-    private Node currentNode;
+import java.util.*;
 
-    public MyIterator<E> (Node head){
+public class MyIterator<E> implements Iterator<E>{
+    private Node<E> currentNode;
+
+    public MyIterator<E>(Node<E> head){
 	currentNode=head;
     }
     public boolean hasNext(){
@@ -19,7 +21,7 @@ public class MyIterator<E> implements Iterator<E>{
     }
 
     public static void main(String[]args){
-	MyLinkedList L=new MyListedList();
+	LinkedList L=new ListedList();
 	L.add("one");
 	L.add("two");
 	L.add("three");

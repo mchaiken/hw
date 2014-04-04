@@ -1,20 +1,20 @@
-public class MyLinkedList implements Iterable<String>{
-    private Node head;
-    private Node tail;
+public class MyLinkedList<E> implements Iterable<E>{
+    private Node<E> head;
+    private Node<E> tail;
     private int length;
 
-    public MyLinkedList(){
-	head=new Node("0");
+    public MyLinkedList <E>(){
+	head=new Node<E>(null);
 	tail=head;
     }
-    public Node getHead(){
+    public Node<E> getHead(){
 	return head;
     }
 
-    public MyIterator<String> iterator(){
+    public MyIterator<E> iterator(){
 	return new MyIterator<String>(head);
 	    }
-    public void add(String s){
+    public void add(E s){
 	Node temp=new Node(s);
 	tail.setNext(temp);
 	tail=temp;
@@ -47,7 +47,7 @@ public class MyLinkedList implements Iterable<String>{
 	}
     }
 
-    public String get(int i){
+    public E get(int i){
 	Node temp=head.getNext();
 	for(int c=0;c<i;c++){
 	    temp=temp.getNext();
@@ -55,7 +55,7 @@ public class MyLinkedList implements Iterable<String>{
 	return temp.getData();
     }
 
-    public String set(int i, String s){
+    public E set(int i, E s){
 	Node temp=head;
 	for(int c=0;c<i;c++){
 	    temp=temp.getNext();
@@ -71,7 +71,7 @@ public class MyLinkedList implements Iterable<String>{
     
     }
 
-    public String remove(int i){
+    public E remove(int i){
 	Node temp=head;
 	Node old;
 	for(int c=0;c< i;c++){
