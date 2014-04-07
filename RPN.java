@@ -16,7 +16,7 @@ public class RPN{
         on?=false;
       }
       else if(opperators.indexOf(input) ==-1){
-          stack.push(index)
+          stack.push(index);
       }
       else{
         System.out.println(opperate(input));
@@ -41,7 +41,7 @@ public class RPN{
     else if(op.equals("-")){
       ret=a-b;
     }
-    stack.push(ret)
+    stack.push(ret);
     return ret;
   }
 
