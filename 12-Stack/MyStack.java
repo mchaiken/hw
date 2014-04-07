@@ -1,10 +1,11 @@
 public class MyStack{
     
     private Node top;
-
+    private int numElts;
     //constructor
     public MyStack(){
 	top=null;
+	numElts=0;
     }
 
     //push
@@ -12,6 +13,7 @@ public class MyStack{
 	Node n=new Node(s);
 	n.setNext(top);
 	top=n;
+	numElts++;
     }
 	
 
@@ -20,6 +22,7 @@ public class MyStack{
 	Node old = top;
 	top=top.getNext();
 	return old.getData();
+	numElts--;
     }
  
     //peek
@@ -30,6 +33,11 @@ public class MyStack{
     public boolean isEmpty(){
 	return top == null;
     }
+    
+    public int getSize(){
+	return numElts;
+    }
+
 
     //toString
     public String toString(){
