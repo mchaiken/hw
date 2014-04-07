@@ -15,6 +15,9 @@ public class RPN{
       if(input.equals("off")){
         on?=false;
       }
+      else if(input.equals("clear")){
+        stack=new PancakeStack();
+      }
       else if(opperators.indexOf(input) ==-1){
           stack.push(index);
       }
@@ -44,7 +47,11 @@ public class RPN{
     stack.push(ret);
     return ret;
   }
-
+  public static void main(String[]args){
+    RPN Z=new RPN();
+    Z.calculate();
+    System.out.println(stack);
+  }
 }
 
   
