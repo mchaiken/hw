@@ -21,8 +21,9 @@ public class PancakeStack{
     public String pop(){
 	Node old = top;
 	top=top.getNext();
-	return old.getData();
 	numElts--;
+	return old.getData();
+
     }
  
     //peek
