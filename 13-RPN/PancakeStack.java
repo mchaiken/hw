@@ -1,50 +1,51 @@
 public class PancakeStack{
     
-    private int top;
-    private String[] pancakes;
-
+    private Node top;
+    private int numElts;
     //constructor
     public PancakeStack(){
-	pancakes=new String[10];
-	top=-1;
+	top=null;
+	numElts=0;
     }
 
     //push
     public void push(String s){
-	if (pancakes.length-1 <= top ){
-	    String[]temp=new String[pancakes.length+10];
-	    for(int x=0; x<pancakes.length;x++){
-		temp[x]=pancakes[x];
-	    }
-	    pancakes=temp;
-	}
-	pancakes[top+1]=s;
-	top++;
+	Node n=new Node(s);
+	n.setNext(top);
+	top=n;
+	numElts++;
     }
 	
 
     //pop
     public String pop(){
-	String s=pancakes[top];
-	pancakes[top]="";
-	top--;
-	return s;
+	Node old = top;
+	top=top.getNext();
+	return old.getData();
+	numElts--;
     }
  
     //peek
     public String peek(){
-	return pancakes[top];
+	return top.getData();
     }
     //isEmpty
     public boolean isEmpty(){
-	return top == -1;
+	return top == null;
     }
+    
+    public int getSize(){
+	return numElts;
+    }
+
 
     //toString
     public String toString(){
 	String tmp="";
-	for(int x=top;x>-1;x--){
-	    tmp+=pancakes[x]+", ";
+	Node currentNode = top;
+	while(currentNode != null){
+	    tmp+=currentNode.getData()+", ";
+	    currentNode=currentNode.getNext();
 	}
 	return tmp;
     }

@@ -2,12 +2,14 @@ import java.util.*;
 
 public class RPN{
   private PancakeStack stack;
-  private static final String opperators="*/+-^%";
+  private static final String opperators = "*/+-^%";
   private boolean on = false;
   
     public RPN(){
 	stack=new PancakeStack();
     }
+
+
   public void calculate(){
     on = true;
     while (on){
@@ -27,6 +29,7 @@ public class RPN{
         System.out.println(opperate(input));
 	//System.out.println(this.stack);
       }
+
     }
   }
   
@@ -55,6 +58,8 @@ public class RPN{
     stack.push(ret+"");
     return ret;
   }
+
+
   public static void main(String[]args){
     RPN Z=new RPN();
     Z.calculate();
