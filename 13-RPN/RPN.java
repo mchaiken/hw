@@ -2,7 +2,7 @@ import java.util.*;
 
 public class RPN{
   private PancakeStack stack;
-  private static final String opperators="*/+-";
+  private static final String opperators="*/+-^%";
   private boolean on = false;
   
     public RPN(){
@@ -25,6 +25,7 @@ public class RPN{
       }
       else{
         System.out.println(opperate(input));
+	//System.out.println(this.stack);
       }
     }
   }
@@ -38,13 +39,18 @@ public class RPN{
     }
     else if(op.equals("/")){
       ret=a/b;
-    }
-    
+    }   
     else if(op.equals("+")){
       ret=a+b;
     }
     else if(op.equals("-")){
       ret=a-b;
+    }
+    else if(op.equals("^")){
+	ret=Math.pow(a,b);
+    }
+    else if(op.equals("%")){
+	ret=a%b;
     }
     stack.push(ret+"");
     return ret;
