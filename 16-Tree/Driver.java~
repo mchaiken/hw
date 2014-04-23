@@ -1,0 +1,11 @@
+public class Driver{
+
+    public static void main(String[]args){
+	Node root=new Node();
+	root.setData(0);
+	root.setLeft(new Node());
+	root.setRight(new Node());
+	System.out.println(root.getData());
+	System.out.println(root.getLeft().getData()+" "+root.getRight().getData());
+    }
+}
