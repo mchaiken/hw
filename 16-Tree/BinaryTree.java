@@ -2,12 +2,12 @@ public class BinaryTree{
     private Node root;
 
     public BinaryTree(int x){
-	root=new Node(x);
-
+	root=new Node(Integer.MIN_VALUE);
+	root.setLeft(new Node(x));
     }
 
     public void insert(int x){
-	Node temp=root;
+	Node temp=root.getLeft();
 	Node temp2;
 	while(temp != null){
 	    temp2= temp;
@@ -25,7 +25,7 @@ public class BinaryTree{
     }
 
     public Node search(int x){
-	Node temp=root;
+	Node temp=root.getLeft();
 	while(temp != null && temp.getData() != x){
 	    if (temp.getData() > x){
 		temp=temp.getLeft();
@@ -44,9 +44,56 @@ public class BinaryTree{
 	else if (c.getData() > x)
 	    return search(x, c.getLeft());
 	else{
-	    return search(x, c.getRight()):
+	    return search(x, c.getRight());
 	}
     }
+
+    public void delete(Node target){
+	Node cur = root.getLeft();
+	Node piggy=null;
+	while(cur.getData() != target.getData() && cur!= null){
+	    piggy=cur;
+	    if(cur.getData() > target.getData()){
+		cur=cur.getLeft();
+	    }
+	    else{
+		cur=cur.getRight();
+	    }
+	}
+	if (cur != null){
+	    if (cur.getLeft() == null){
+		if (piggy.getData() > cur.getData()){
+		    piggy.setLeft(cur.getRight());
+		}
+		else if (piggy.getData() < cur.getData()){
+		    piggy.setRight(cur.getRight());
+		}
+		
+	    }
+	    else if(cur.getRight() == null){
+		if (piggy.getData() > cur.getData()){
+		    piggy.setLeft(cur.getLeft());
+		}
+		else if (piggy.getData() < cur.getData()){
+		    piggy.setRight(cur.getLeft());
+
+		}
+	    }
+	    else{
+		Node replace= cur.getRight();
+		while(replace.getLeft() != null){
+		    replace=replace.getLeft();	   
+		}
+		int temp= replace.getData();
+		delete(replace);
+		cur.setData(temp);
+	    }
+	}
+    }
+		    
+	    
+
+		
 
     public String toString(Node temp){
 	if (temp != null){
@@ -55,18 +102,33 @@ public class BinaryTree{
 	return "nothing ";
     }
     public String toString(){
-	return toString(root);
+	return toString(root.getLeft());
     }
 
 
 
     public static void main(String[] args){
-	BinaryTree me = new BinaryTree(100);
-	me.insert(150);
-	me.insert(50);
+	BinaryTree me = new BinaryTree(15);
 	me.insert(10);
-	me.insert(75);
-	System.out.println(me);
+	me.insert(20);
+	me.insert(12);
+	me.insert(5);
+	me.insert(2);
+
+	me.insert(17);
+	me.insert(16);
+	me.insert(18);
+	me.insert(25);
+	me.insert(22);
+	me.insert(30);
+	me.insert(26);
+	me.insert(28);
+
+	System.out.println(me +"\n");
+	me.delete(new Node(2));
+	me.delete(new Node(5));
+	me.delete(new Node(25));
+	System.out.println(me+"\n");
     }
 	
 }
