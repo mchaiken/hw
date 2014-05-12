@@ -92,16 +92,7 @@ public class BinaryTree{
     }
 		    
 	    
-    public String  print(Node temp){
-	if(temp!=null){
-	    return temp.getData()+" "+print(temp.getLeft())+" "+print(temp.getRight());
-	}
-	return "";
-    }
 
-    public String  print(){
-	return print(root.getLeft());
-    }
 		
 
     public String toString2(Node temp){
@@ -161,7 +152,7 @@ public String ans;
 	me.delete(new Node(2));
 	me.delete(new Node(5));
 	me.delete(new Node(25));
-	System.out.println(me.print());
+	System.out.println(me+"\n");
     }
 	
 }
