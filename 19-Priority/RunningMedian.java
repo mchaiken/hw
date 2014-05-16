@@ -4,6 +4,8 @@ public class RunningMedian{
 
     PriorityQueue<Integer> maxHeap;
     PriorityQueue<Integer> minHeap;
+
+
     public RunningMedian(){
 	maxHeap=new PriorityQueue<Integer>();
 	minHeap=new PriorityQueue<Integer>();
@@ -30,6 +32,8 @@ public class RunningMedian{
 	    return (maxHeap.peek()*-1 + minHeap.peek())/2;
     }
 
+    
+
     public Integer removeMedian(){
 	if (maxHeap.size()>minHeap.size())
 	    return maxHeap.remove()*-1;
@@ -48,6 +52,13 @@ public class RunningMedian{
 	me.add(20);
 	System.out.println(me.maxHeap);
 	System.out.println(me.minHeap);
+
+	System.out.println( me.getMedian());
+	System.out.println(me.removeMedian());
+
+	System.out.println(me.maxHeap);
+	System.out.println(me.minHeap);  	
+
 
 	System.out.println(me.getMedian());
 	System.out.println(me.removeMedian());
